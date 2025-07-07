@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+:root {
+  --watch-width: 370px;
+  --watch-height: 440px;
+  --screen-radius: 50px;
+}
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  background: #3d4a59;
+  user-select: none;
+}
+.watch-container {
+  position: relative;
+}
+.watch-body {
+  width: var(--watch-width);
+  height: var(--watch-height);
+  background: linear-gradient(145deg, #2e2e2e, #1a1a1a);
+  border-radius: var(--screen-radius);
+  padding: 18px;
+  box-sizing: border-box;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+.digital-crown {
+  position: absolute;
+  top: 90px;
+  right: -14px;
+  width: 28px;
+  height: 55px;
+  background: #444;
+  border-radius: 8px;
+}
+.side-button {
+  position: absolute;
+  top: 170px;
+  right: -10px;
+  width: 20px;
+  height: 80px;
+  background: #333;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 100;
+}
+.screen-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 35px;
+  overflow: hidden;
+  position: relative;
+  background: url("https://www.dropbox.com/scl/fi/wdn6u28zwo759cgfnipvq/blackshirt.jpg?rlkey=jrd6fakkoyw0fjku4etpdzqju&st=e0usrmbv&dl=1")
+    no-repeat center center;
+  background-size: cover;
+  cursor: grab;
+}
+.main-carousel {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.main-screen {
+  width: 50%;
+  height: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+#watch-face {
+  justify-content: flex-end;
+}
+.time-display {
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.complication {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00aaff;
+  margin-top: 10px;
+}
+#control-center {
+  justify-content: flex-start;
+  gap: 20px;
+}
+.date-header {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+.icon-button {
+  height: 100px;
+  border-radius: 30px;
+  display: grid;
+  place-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+.icon-button:active {
+  transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.2);
+}
+.app-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+.app-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--watch-width);
+  height: var(--watch-height);
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: var(--screen-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform-origin: center;
+}
+.app-screen.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+#control-center .date-header,
+.icon-button,
+.app-screen {
+  background: rgba(30, 30, 30, 0.25);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+#music-app .album-art {
+  width: 160px;
+  height: 160px;
+  border-radius: 20px;
+  background-size: cover !important;
+  background-position: center !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  transition: background-image 0.5s ease;
+}
+#music-app .song-info,
+#music-app .progress-container,
+#music-app .music-controls {
+  width: 100%;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: rgba(30, 30, 30, 0.25);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+#music-app .song-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+#music-app .song-artist {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+#music-app .progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  cursor: pointer;
+}
+#music-app .progress {
+  width: 0%;
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
+  transition: width 0.1s linear;
+}
+#music-app .time-stamps {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+#music-app .music-controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+  font-size: 1.2rem;
+}
+.play-pause-btn {
+  font-size: 1.8rem !important;
+  cursor: pointer;
+}
+#calculator-app {
+  padding: 15px;
+  justify-content: flex-end;
+  gap: 15px;
+}
+.calculator-display {
+  font-size: 3rem;
+  text-align: right;
+  width: 100%;
+}
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+.calc-btn {
+  font-size: 1.5rem;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(90, 90, 90, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.calc-btn.wide {
+  grid-column: span 2;
+  border-radius: 30px;
+  text-align: left;
+  padding-left: 25px;
+}
+.calc-btn.operator {
+  background: #ff9500;
+  color: white;
+}
+.calc-btn.utility {
+  background: #a5a5a5;
+  color: black;
+}
+#flashlight-app,
+#settings-app {
+  font-size: 2rem;
+  text-align: center;
+}
+#flashlight-app .flashlight-content {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  background: white;
+  color: black;
+  border-radius: 35px;
+  cursor: pointer;
+}

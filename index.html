@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Watch UI - GordXRohit</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="watch-container">
+      <div class="watch-body">
+        <div class="screen-container">
+          <div class="main-carousel">
+            <!-- Screen 1: Watch Face -->
+            <section class="main-screen" id="watch-face">
+              <div class="time-display">10:09</div>
+              <div class="complication">
+                <i class="fas fa-shoe-prints"></i> 4059
+              </div>
+            </section>
+            <!-- Screen 2: Control Center -->
+            <section class="main-screen" id="control-center">
+              <div class="date-header">MAY 28 TUE</div>
+              <div class="icon-grid">
+                <div class="icon-button" data-app="music-app">
+                  <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="icon-button" data-app="calculator-app">
+                  <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div class="icon-button" data-app="flashlight-app">
+                  <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div class="icon-button" data-app="settings-app">
+                  <i class="fa-solid fa-gear"></i>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="digital-crown"></div>
+      <div class="side-button"></div>
+    </div>
+
+    <div class="app-layer">
+      <!-- Music App -->
+      <section class="app-screen" id="music-app">
+        <div class="album-art"></div>
+        <div class="song-info">
+          <div class="song-title">Song Title</div>
+          <div class="song-artist">Artist Name</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress"></div>
+          </div>
+          <div class="time-stamps">
+            <span class="current-time">0:00</span>
+            <span class="total-time">0:00</span>
+          </div>
+        </div>
+        <div class="music-controls">
+          <i class="fa-solid fa-backward-step" id="prev-btn"></i>
+          <i class="fa-solid fa-play fa-2x play-pause-btn"></i>
+          <i class="fa-solid fa-forward-step" id="next-btn"></i>
+        </div>
+      </section>
+
+      <!-- Calculator App -->
+      <section class="app-screen" id="calculator-app">
+        <div class="calculator-display">0</div>
+        <div class="calculator-grid">
+          <button class="calc-btn utility">C</button
+          ><button class="calc-btn utility">±</button
+          ><button class="calc-btn utility">%</button
+          ><button class="calc-btn operator">÷</button>
+          <button class="calc-btn">7</button><button class="calc-btn">8</button
+          ><button class="calc-btn">9</button
+          ><button class="calc-btn operator">×</button>
+          <button class="calc-btn">4</button><button class="calc-btn">5</button
+          ><button class="calc-btn">6</button
+          ><button class="calc-btn operator">-</button>
+          <button class="calc-btn">1</button><button class="calc-btn">2</button
+          ><button class="calc-btn">3</button
+          ><button class="calc-btn operator">+</button>
+          <button class="calc-btn wide">0</button
+          ><button class="calc-btn">.</button
+          ><button class="calc-btn operator">=</button>
+        </div>
+      </section>
+
+      <!-- Flashlight App -->
+      <section class="app-screen" id="flashlight-app">
+        <div class="flashlight-content">
+          <i class="fas fa-lightbulb"></i>
+          <p>Flashlight On</p>
+        </div>
+      </section>
+
+      <!-- Settings App -->
+      <section class="app-screen" id="settings-app">
+        <div class="settings-content">
+          <i class="fas fa-cog fa-spin"></i>
+          <p>Settings</p>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+
+    <audio id="audio-player"></audio>
+  </body>
+</html>
